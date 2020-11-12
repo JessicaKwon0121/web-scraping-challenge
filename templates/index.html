@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars_JessicaKwon</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+
+    <div>
+        <h4>Latest Mars News</h4>
+        <p>
+        <h5>{{ mars.title }}</h5>
+        </p>
+        <p>
+        <h6>{{ mars.paragraph }}</h6>
+        </p>
+    </div>
+
+    <div>
+      <h4>Featured Mars Image</h4>
+      <div>
+        <img src="{{ img.featured_image }}" alt="JPL Mars Space Images" style="height:95%; width:100%;">
+    </div>
+
+    <div>
+      <h4>Mars Facts</h4>
+      <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th></th>      <th>Mars</th>    </tr>    <tr>      <th>Description</th>      <th></th>    </tr>  </thead>  <tbody>    <tr>      <th>Mass:</th>      <td>6.39 × 10^23 kg (0.11 Earths)</td>    </tr>    <tr>      <th>Moons:</th>      <td>2 (Phobos &amp; Deimos)</td>    </tr>    <tr>      <th>Orbit Distance:</th>      <td>227,943,824 km (1.38 AU)</td>    </tr>    <tr>      <th>Orbit Period:</th>      <td>687 days (1.9 years)</td>    </tr>    <tr>      <th>Surface Temperature:</th>      <td>-87 to -5 °C</td>    </tr>    <tr>      <th>First Record:</th>      <td>2nd millennium BC</td>    </tr>    <tr>      <th>Recorded By:</th>      <td>Egyptian astronomers</td>    </tr>  </tbody></table>
+      <div>
+        
+    </div>
+
+    <div>
+      <h4>Mars Hemispheres</h4>
+      <ul>
+        {% for hemispheres in img_data %}
+          <li><img scr="{{ hemispheres[0] }}" alt= "Cerberus Hemisphere Enhanced thumbnail"><h4>Cerberus Hemisphere</h4></a>
+          <li><img scr="{{ hemisphere[1] }}" alt= "Schiaparelli Hemisphere Enhanced thumbnail"><h4>Schiaparelli Hemisphere</h4></a>
+          <li><img scr="{{ hemisphere[2] }}" alt= "Syrtis Major Hemisphere Enhanced thumbnail"><h4>Syrtis Major Hemisphere</h4></a>
+          <li><img scr="{{ hemisphere[3] }}" alt= "Valles Marineris Hemisphere Enhanced thumbnail"><h4>Valles Marineris Hemisphere</h4></a>  
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>
