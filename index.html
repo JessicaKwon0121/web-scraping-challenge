@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mars_JessicaKwon</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <div class="container">
+
+      <div class="jumbotron text-center">
+        <h1>Mission to Mars</h1>
+        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+      </div>
+
+      <div>
+        <h4>Latest NASA Mars News</h4>
+        <p>
+        <h5>{{ mars.title }}</h5>
+        </p>
+        <p>
+        <h6>{{ mars.paragraph }}</h6>
+        </p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div>
+            <h4>Featured Mars Image</h4>
+            <div>
+              <img src="{{ mars.featured_image_url }}" alt="JPL Mars Space Images" style="height:95%; width:100%;">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <table style="float:right">
+            <tr>
+              <td>
+                <h5>Mars Facts</h5>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:19px">{{ mars.facts | safe }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class=" container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="heading text-center"><strong>Mars Hemispheres</strong></h2>
+        </div>
+      </div>
+      <div class="row">
+        {% for pic in mars.hemisphere_image[0:2] %}
+        <div class="col-md-6">
+          <img src="{{ pic['img_url'] }}" alt="hemisphere" style="width:95%;">
+          <br>
+          {{ pic['title'] }}
+
+        </div>
+        {% endfor %}
+      </div>
+      <br>
+      <div class="row">
+        {% for pic in mars.hemisphere_image[2:4] %}
+        <div class="col-md-6">
+          <img src="{{ pic['img_url'] }}" alt="hemisphere" style="width:95%;">
+          <br>
+          {{ pic['title'] }}
+
+        </div>
+        {% endfor %}
+      </div>
+
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+  </body>
+
+</html>
